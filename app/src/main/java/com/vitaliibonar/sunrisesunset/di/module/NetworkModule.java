@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class NetworkModule {
 
-    private static final int TIMEOUT = 5000;
+    private static final int TIMEOUT = 10000;
 
     @Provides
     @NonNull
