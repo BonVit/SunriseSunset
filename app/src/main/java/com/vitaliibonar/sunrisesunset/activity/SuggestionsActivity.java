@@ -39,8 +39,12 @@ public class SuggestionsActivity extends BaseActivity {
 
     private SuggestionsAdapter suggestionsAdapter;
 
-    public Intent makeIntent(Context context) {
+    public static Intent makeIntent(Context context) {
         return new Intent(context, SuggestionsActivity.class);
+    }
+
+    public static String getExtraPlaceId(Intent intent) {
+        return intent.getStringExtra(EXTRA_PLACE_ID);
     }
 
     @Override
@@ -63,12 +67,6 @@ public class SuggestionsActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         subscribe();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        hideProgressDialog();
     }
 
     private void subscribe() {
@@ -102,9 +100,9 @@ public class SuggestionsActivity extends BaseActivity {
         showToast(throwable.getLocalizedMessage());
     }
 
-    private SuggestionsAdapter.ItemClickedCallback suggestionClickedCallback = id -> {
-        setResult(RESULT_OK, resultIntent(id));
-        finish();
+    private SuggestionsAdapter.ItemClickedCallback suggestionClickedCallback = (id) -> {
+        SuggestionsActivity.this.setResult(RESULT_OK, SuggestionsActivity.this.resultIntent(id));
+        SuggestionsActivity.this.finish();
     };
 
     private Intent resultIntent(String id) {

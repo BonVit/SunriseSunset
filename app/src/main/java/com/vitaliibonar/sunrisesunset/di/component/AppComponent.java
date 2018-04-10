@@ -1,5 +1,6 @@
 package com.vitaliibonar.sunrisesunset.di.component;
 
+import com.vitaliibonar.sunrisesunset.activity.MainActivity;
 import com.vitaliibonar.sunrisesunset.activity.SuggestionsActivity;
 import com.vitaliibonar.sunrisesunset.di.module.AppModule;
 import com.vitaliibonar.sunrisesunset.di.module.GoogleApiModule;
@@ -13,5 +14,6 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
     void inject(SuggestionsActivity suggestionsActivity);
+    void inject(MainActivity mainActivity);
 }
 

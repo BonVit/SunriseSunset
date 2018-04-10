@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SunriseSunset</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="location">Location: %1$s</string>
+    <string name="sunrise_time">Sunrise time: %1$s</string>
+    <string name="sunset_time">Sunset time: %1$s</string>
+    <string name="pick_place">Pick place</string>
+    <string name="current_location">Current location</string>
 </resources>

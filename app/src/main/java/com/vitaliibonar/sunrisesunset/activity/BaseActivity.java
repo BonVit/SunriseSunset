@@ -22,8 +22,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void showProgressDialog() {
         hideProgressDialog();
-        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.please_wait));
+        progressDialog.setCancelable(false);
         progressDialog.show();
     }
 
@@ -41,6 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        hideProgressDialog();
         for (Disposable disposable : disposables) {
             if (disposable != null && !disposable.isDisposed()) {
                 disposable.dispose();

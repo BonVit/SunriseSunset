@@ -6,7 +6,6 @@ import com.google.android.gms.location.places.AutocompletePrediction;
 import com.google.android.gms.location.places.AutocompletePredictionBufferResponse;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.PlaceBufferResponse;
-import com.google.android.gms.location.places.PlaceLikelihood;
 import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
 import com.google.android.gms.tasks.Task;
 import com.vitaliibonar.sunrisesunset.data.service.PlacesService;
@@ -34,11 +33,11 @@ public class PlacesServiceImpl implements PlacesService {
     @SuppressLint("RestrictedApi")
     @Override
     public Disposable getClosestPlace(Task<PlaceLikelihoodBufferResponse> task,
-                                      Consumer<PlaceLikelihood> onSuccess,
+                                      Consumer<Place> onSuccess,
                                       Consumer<Throwable> onError) {
-        return Observable.create((ObservableOnSubscribe<PlaceLikelihood>) emitter -> {
+        return Observable.create((ObservableOnSubscribe<Place>) emitter -> {
             try {
-                task.addOnCompleteListener(task1 -> emitter.onNext(task1.getResult().get(0)));
+                task.addOnCompleteListener(task1 -> emitter.onNext(task1.getResult().get(0).getPlace()));
                 Thread.sleep(timeout);
                 if (!task.isComplete() || !task.isSuccessful()) {
                     throw new TimeoutException();
