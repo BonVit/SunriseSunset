@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundBlackTransparent">
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorBackgroundWhite"
+            android:padding="@dimen/gapRegular"
+            android:maxLines="1"
+            android:inputType="textAutoComplete" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerHeight"
+            android:layout_below="@+id/etCity"
+            android:background="@drawable/drawable_shadow_top" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvSuggestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider"
+            android:background="@color/colorBackgroundRegular"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+    </RelativeLayout>
+</layout>

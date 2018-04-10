@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dividerHeight">2dp</dimen>
+
+    <dimen name="gapRegular">10dp</dimen>
+    <dimen name="gapSmall">5dp</dimen>
+    <dimen name="gapBig">20dp</dimen>
+</resources>
